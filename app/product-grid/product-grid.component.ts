@@ -29,6 +29,10 @@ export class ProductGridComponent {
   }
 
   crawlNextRow() {
+    if (this.selectedProductIndexes.length <= 0) {
+      alert('Click any one of the row before clicking crawler previous / next button');
+      return;
+    }
     this.currentIndex++;
     var productGridData = this.getProductGridData(this.productGrid);
     if (this.currentIndex < productGridData.length) {
@@ -37,6 +41,10 @@ export class ProductGridComponent {
   }
 
   crawlPreviousRow() {
+    if (this.selectedProductIndexes.length <= 0) {
+      alert('Click on any row before clicking crawler previous / next button');
+      return;
+    }
     this.currentIndex--;
     if (this.currentIndex >= 0) {
       var productGridData = this.getProductGridData(this.productGrid);

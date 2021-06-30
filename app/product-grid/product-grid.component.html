@@ -3,8 +3,10 @@
     [scrollable]="'virtual'" [selectedKeys]="selectedProductIndexes" [kendoGridSelectBy]="'ProductID'"
     (cellClick)="selectedGridData($event)" #productGrid>
     <kendo-grid-column field="Discontinued" title="check" width="20">
-      <ng-template kendoGridCellTemplate let-dataItem>
-        <input type="checkbox"/>
+      <ng-template kendoGridCellTemplate let-idx="rowIndex">
+        <input type="checkbox"
+             [kendoGridSelectionCheckbox]="idx"
+              />
       </ng-template>
     </kendo-grid-column>
     <kendo-grid-column field="ProductID" title="ID" width="20">
@@ -13,11 +15,13 @@
     </kendo-grid-column>
     <kendo-grid-column field="Category.CategoryName" title="Category" width="60">
     </kendo-grid-column>
-    <kendo-grid-column width="50" title="Properties">
-    </kendo-grid-column>
   </kendo-grid>
 </div>
 <div>
-  <button class="col-6" type="button" (click)="crawlPreviousRow()">Crawl Previous Row</button>
-  <button class="col-6" type="button" (click)="crawlNextRow()">Crawl Next Row</button>
+  <button class="col-6" type="button" (click)="crawlPreviousRow()" >Crawl Previous Row</button>
+  <button class="col-6" type="button" (click)="crawlNextRow()"
+  >Crawl Next Row</button>
+</div>
+<div>
+  <p>Note : <i> Click any one of the row before clicking crawler previous / next button</i></p>
 </div>
