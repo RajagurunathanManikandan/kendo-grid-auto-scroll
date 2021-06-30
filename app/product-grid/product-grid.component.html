@@ -1,6 +1,7 @@
 <div>
   <kendo-grid [kendoGridBinding]="gridData" [style.max-height.px]="gridHeight" [resizable]="true"
-    [scrollable]="'virtual'" [selectedKeys]="selectedProductIndexes" [kendoGridSelectBy]="selectedProductIndex">
+    [scrollable]="'virtual'" [selectedKeys]="selectedProductIndexes" [kendoGridSelectBy]="'ProductID'"
+    (cellClick)="selectedGridData($event)" #productGrid>
     <kendo-grid-column field="Discontinued" title="check" width="20">
       <ng-template kendoGridCellTemplate let-dataItem>
         <input type="checkbox"/>
@@ -13,19 +14,10 @@
     <kendo-grid-column field="Category.CategoryName" title="Category" width="60">
     </kendo-grid-column>
     <kendo-grid-column width="50" title="Properties">
-    <ng-template kendoGridCellTemplate
-                 let-dataItem
-                 let-rowIndex="rowIndex">
-      <button type="button"
-              (click)="openSelectedProductDetails(dataItem,rowIndex)"
-              class="btn btn-link py-0">
-        View Properties
-      </button>
-    </ng-template>
-  </kendo-grid-column>
+    </kendo-grid-column>
   </kendo-grid>
 </div>
-<!-- <div>
-  <button class="col-6" type="button">Crawl Next Row</button>
-  <button class="col-6" type="button">Crawl Next Row</button>
-</div> -->
+<div>
+  <button class="col-6" type="button" (click)="crawlPreviousRow()">Crawl Previous Row</button>
+  <button class="col-6" type="button" (click)="crawlNextRow()">Crawl Next Row</button>
+</div>
