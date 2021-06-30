@@ -1,23 +1,31 @@
 <div>
-  <kendo-grid [data]="gridData" [style.max-height.px]="gridHeight" [resizable]="true" [scrollable]="'virtual'">
-    <kendo-grid-column field="Discontinued" title="Discontinued" width="100">
+  <kendo-grid [kendoGridBinding]="gridData" [style.max-height.px]="gridHeight" [resizable]="true"
+    [scrollable]="'virtual'" [selectedKeys]="selectedProductIndexes" [kendoGridSelectBy]="selectedProductIndex">
+    <kendo-grid-column field="Discontinued" title="check" width="20">
       <ng-template kendoGridCellTemplate let-dataItem>
         <input type="checkbox"/>
       </ng-template>
     </kendo-grid-column>
-    <kendo-grid-column field="ProductID" title="ID" width="40">
+    <kendo-grid-column field="ProductID" title="ID" width="20">
     </kendo-grid-column>
-    <kendo-grid-column field="ProductName" title="Name" width="250">
+    <kendo-grid-column field="ProductName" title="Name" width="70">
     </kendo-grid-column>
-    <kendo-grid-column field="Category.CategoryName" title="Category">
+    <kendo-grid-column field="Category.CategoryName" title="Category" width="60">
     </kendo-grid-column>
-    <kendo-grid-column field="UnitPrice" title="Price" width="80">
-    </kendo-grid-column>
-    <kendo-grid-column field="UnitsInStock" title="In stock" width="80">
-    </kendo-grid-column>
+    <kendo-grid-column width="50" title="Properties">
+    <ng-template kendoGridCellTemplate
+                 let-dataItem
+                 let-rowIndex="rowIndex">
+      <button type="button"
+              (click)="openSelectedProductDetails(dataItem,rowIndex)"
+              class="btn btn-link py-0">
+        View Properties
+      </button>
+    </ng-template>
+  </kendo-grid-column>
   </kendo-grid>
 </div>
-<div>
+<!-- <div>
   <button class="col-6" type="button">Crawl Next Row</button>
   <button class="col-6" type="button">Crawl Next Row</button>
-</div>
+</div> -->

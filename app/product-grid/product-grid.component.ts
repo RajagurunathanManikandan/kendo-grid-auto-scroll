@@ -9,11 +9,22 @@ import { products } from '../products';
 export class ProductGridComponent implements OnInit {
   public gridData: any[] = products;
   public gridHeight = window.innerHeight - 150;
+  public selectedProductIndexes = [];
 
   @HostListener('window:resize') onResize() {
     this.gridHeight = window.innerHeight - 150;
   }
 
+  public selectedProductIndex = (args) => args.dataItem.ProductID;
+
+  crawlNextRow(){
+
+  }
+
+  crawlPreviousRow(){
+
+  }
+  
   constructor() {}
 
   ngOnInit() {}
