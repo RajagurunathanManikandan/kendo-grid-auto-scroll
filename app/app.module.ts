@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridModule } from '@progress/kendo-angular-grid';
 
 import { AppComponent } from './app.component';
+import { ProductGridComponent } from './product-grid/product-grid.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { AppComponent } from './app.component';
     GridModule,
     HttpClientModule
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, ProductGridComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
