@@ -30,7 +30,9 @@ export class ProductGridComponent {
 
   crawlNextRow() {
     if (this.selectedProductIndexes.length <= 0) {
-      alert('Click any one of the row before clicking crawler previous / next button');
+      alert(
+        'Click any one of the row before clicking crawler previous / next button'
+      );
       return;
     }
     this.currentIndex++;
@@ -42,7 +44,7 @@ export class ProductGridComponent {
 
   crawlPreviousRow() {
     if (this.selectedProductIndexes.length <= 0) {
-      alert('Click on any row before clicking crawler previous / next button');
+      alert('Click any one of the row before clicking crawler previous / next button');
       return;
     }
     this.currentIndex--;

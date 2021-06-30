@@ -2,7 +2,7 @@
   <kendo-grid [kendoGridBinding]="gridData" [style.max-height.px]="gridHeight" [resizable]="true"
     [scrollable]="'virtual'" [selectedKeys]="selectedProductIndexes" [kendoGridSelectBy]="'ProductID'"
     (cellClick)="selectedGridData($event)" #productGrid>
-    <kendo-grid-column field="Discontinued" title="check" width="20">
+    <kendo-grid-column field="Discontinued" title="Select" width="20">
       <ng-template kendoGridCellTemplate let-idx="rowIndex">
         <input type="checkbox"
              [kendoGridSelectionCheckbox]="idx"
